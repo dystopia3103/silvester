@@ -58,10 +58,11 @@
 
       setInterval(function() {
 	      var t1 = new Date();
-	      var utc = t1.getTime() + (t1.getTimezoneOffset() * 60000);
+		  var offset = (t1.getTimezoneOffset() * 60000);
+	      var utc = t1.getTime() + offset;
 	      t1 = new Date(utc + (3600000*1));
-	      var t2 = new Date(2023, 1, 1, 0, 0, 0, 0);
-		  var utc2 = t2.getTime() + (t2.getTimezoneOffset() * 60000);
+	      var t2 = new Date(2023, 0, 1, 0, 0, 0, 0);
+		  var utc2 = t2.getTime() + offset;
 		  t2 = new Date(utc2 + (3600000*1));
 
 	      var dif = t2.getTime() - t1.getTime();
