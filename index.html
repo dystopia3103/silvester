@@ -8,6 +8,7 @@
 	<style>
 		html, body {
 			height: 100%;
+            overflow: hidden;
 		}
 		canvas {
 			width: 100%;
@@ -26,7 +27,13 @@
 	        bottom: 0;
 	        position: absolute;
 	        height: 60vh;
+        }
 
+        #beanie {
+            right: 50px;
+            bottom: -180px;
+            position: absolute;
+            height: 80vh;
         }
 	</style>
 </head>
@@ -40,6 +47,7 @@
 		  </p>
 		  <p class="is-size-1" id="timer"></p>
 		  <img id="bender" src="bender.png" />
+		  <img id="beanie" src="beanie.png" />
 	  </div>
     <script>
       const timer = document.getElementById("timer");
