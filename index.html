@@ -51,28 +51,18 @@
 		  <img id="beanie" src="beanie.png" />
 	  </div>
     <script>
-      const timer = document.getElementById("timer");
-      var confettiSettings = { target: 'my-canvas' };
-      var confetti = new ConfettiGenerator(confettiSettings);
-      confetti.render();
+	const timer = document.getElementById("timer");
+	const confettiSettings = { target: 'my-canvas' };
+	const confetti = new ConfettiGenerator(confettiSettings);
+	confetti.render();
 
-      setInterval(function() {
-	      var t1 = new Date();
-		  var offset = (t1.getTimezoneOffset() * 60000);
-	      var utc = t1.getTime() + offset;
-	      t1 = new Date(utc + (3600000*1));
-	      var t2 = new Date(2023, 0, 1, 0, 0, 0, 0);
-		  var utc2 = t2.getTime() + offset;
-		  t2 = new Date(utc2 + (3600000*1));
-
-	      var dif = t2.getTime() - t1.getTime();
-	      var secs = Math.round(dif / 1000);
-		  if (secs <= 0) {
-			  timer.innerHTML = "FROHES NEUES 2023! <3";
-		  } else {
-			  timer.innerHTML = secs + " Sekunden bis 2023";
-		  }
-      }, 100);
+	setInterval(function() {
+		const dif = (new Date('2023-01-01 00:00:00') - new Date()) / 1000
+		const secs = Math.round(dif);
+		timer.innerHTML = secs <= 0 
+			? "FROHES NEUES 2023! &#9829;"
+			: timer.innerHTML = secs + " Sekunden bis 2023";
+	}, 100);
     </script>
   </div>
 </body>
