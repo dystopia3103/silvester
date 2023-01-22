@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Silvester</title>
+    <meta charset="UTF-8">
+    <title>Silvester</title>
     <script src="index.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<style>
-		html, body {
-			height: 100%;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+          integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        html, body {
+            height: 100%;
             overflow: hidden;
-		}
-		canvas {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-		}
-        .hero-body {
-	        display: flex;
-	        flex-direction: column;
-	        justify-content: center;
-	        align-items: center;
         }
-            #bender {
-                left: 0;
-                bottom: 0;
-                position: absolute;
-                height: 30vh;
-            }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .hero-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bender {
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            height: 30vh;
+        }
 
 
-            #beanie {
-                right: 0;
-                bottom: 0;
-                position: absolute;
-                height: 30vh;
-            }
+        #beanie {
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            height: 30vh;
+        }
 
-	</style>
+    </style>
 </head>
 <body>
 
 <canvas id="my-canvas"></canvas>
-  <div class="hero is-light is-fullheight">
-	  <div class="hero-body">
-		  <p class="title">
-			  Heuweg-Silvester-Party
-		  </p>
-		  <p class="is-size-1" id="timer"></p>
-		  <img id="bender" src="bender.png" />
-		  <img id="beanie" src="beanie.png" />
-	  </div>
+<div class="hero is-light is-fullheight">
+    <div class="hero-body">
+        <p class="title">
+            Heuweg-Silvester-Party
+        </p>
+        <p class="is-size-1" id="timer"></p>
+        <img id="bender" src="bender.png"/>
+        <img id="beanie" src="beanie.png"/>
+    </div>
     <script>
-	const timer = document.getElementById("timer");
-	const confettiSettings = { target: 'my-canvas' };
-	const confetti = new ConfettiGenerator(confettiSettings);
-	confetti.render();
+        const timer = document.getElementById("timer");
+        const confettiSettings = {target: 'my-canvas'};
+        const confetti = new ConfettiGenerator(confettiSettings);
+        const year = 2024;
+        confetti.render();
 
-	setInterval(function() {
-		const dif = (new Date('2023-01-01 00:00:00') - new Date()) / 1000
-		const secs = Math.round(dif);
-		timer.innerHTML = secs <= 0 
-			? "FROHES NEUES 2023! &#9829;"
-			: timer.innerHTML = secs + " Sekunden bis 2023";
-	}, 100);
+        setInterval(function () {
+            const dif = (new Date(`${year}-01-01 00:00:00`) - new Date()) / 1000
+            const secs = Math.round(dif);
+            timer.innerHTML = secs <= 0
+                ? `FROHES NEUES ${year}! &#9829;`
+                : timer.innerHTML = `${secs} Sekunden bis ${year}`;
+        }, 100);
     </script>
-  </div>
+</div>
 </body>
 </html>
